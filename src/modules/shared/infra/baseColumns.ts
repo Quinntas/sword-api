@@ -1,15 +1,14 @@
-import {serial, timestamp, varchar} from 'drizzle-orm/pg-core';
 import {randomUUID} from "node:crypto";
+import {datetime, serial, varchar} from "drizzle-orm/mysql-core";
 
 export function baseColumns() {
     return {
-        id: serial('id').primaryKey(),
-        pid: varchar('pid', {length: 255})
+        id: serial().primaryKey(),
+        pid: varchar({length: 255})
             .notNull()
             .unique()
             .$defaultFn(() => randomUUID()),
-        createdAt: timestamp('created_at', {mode: "date"})
+        createdAt: datetime('created_at', {mode: "date"})
             .notNull()
-            .defaultNow(),
     };
 }

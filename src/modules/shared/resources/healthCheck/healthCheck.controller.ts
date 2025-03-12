@@ -1,7 +1,8 @@
 import {z} from "zod";
 import {controller} from "../../../../core/controller";
 
-export const healthCheckController = controller({
+export const healthCheckController = controller(
+    {
         description: "Health check",
         tags: ["Utils"],
         response: {
