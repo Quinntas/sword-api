@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
@@ -21,16 +22,17 @@
     "fastify-type-provider-zod": "^4.0.2",
     "ioredis": "^5.4.2",
     "jsonwebtoken": "^9.0.2",
-    "pg": "^8.13.1",
+    "mysql2": "^3.13.0",
     "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.8",
     "@types/node": "^22.10.2",
-    "@types/pg": "^8.11.11",
     "@types/ws": "^8.5.14",
     "drizzle-kit": "^0.30.4",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
-  }
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.8"
+  },
+  "packageManager": "pnpm@10.6.0+sha512.df0136e797db0cfa7ec1084e77f3bdf81bacbae9066832fbf95cba4c2140ad05e64f316cde51ce3f99ea00a91ffc702d6aedd3c0f450f895e3e7c052fe573cd8"
 }
