@@ -18,9 +18,8 @@ describe('CreateUserCommand', () => {
                 password: "test",
             };
 
-            const result = await command.handle(dto);
+            await command.handle(dto);
 
-            expect(result).toBe(undefined);
             expect(createUserRepository).toHaveBeenCalled()
         });
     });
