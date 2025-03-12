@@ -1,14 +1,11 @@
 import {z} from "zod";
 import {Command} from "../../../../contracts/command";
-import {UserSelectModel} from "../../repo/user.schema";
 import {loginBody} from "./login.dto";
 import {JWT} from "../../../../utils/jwt";
 import {UserRepository} from "../../repo/user.repository";
 import {Crypto} from "../../../../utils/crypto";
 
-type LoginCommandDTO = z.infer<typeof loginBody> & {
-    user: UserSelectModel
-}
+type LoginCommandDTO = z.infer<typeof loginBody>
 
 interface LoginCommandResponseDTO {
     token: string
@@ -28,7 +25,7 @@ export class LoginCommand implements Command<LoginCommandDTO, LoginCommandRespon
         if (!user)
             throw new Error('User not found')
 
-        if (Crypto.compareEncryptedData(user.password, dto.password, process.env.PEPPER!))
+        if (!Crypto.compareEncryptedData(user.password, dto.password, process.env.PEPPER!))
             throw new Error('Invalid password')
 
         const expiresIn = 3600 // 1 hour

@@ -7,7 +7,7 @@ export default defineConfig({
         './src/modules/**/**/repo/*.schema.ts',
         './src/modules/**/repo/*.schema.ts'
     ],
-    dialect: 'postgresql',
+    dialect: 'mysql',
     dbCredentials: {
         url: process.env.DATABASE_URL!,
     },

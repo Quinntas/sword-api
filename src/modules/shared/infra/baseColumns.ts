@@ -1,11 +1,11 @@
 import {randomUUID} from "node:crypto";
-import {datetime, serial, varchar} from "drizzle-orm/mysql-core";
+import {datetime, int, varchar} from "drizzle-orm/mysql-core";
 import {sql} from "drizzle-orm";
 
 // @formatter:off
 export function baseColumns() {
     return {
-        id: serial().primaryKey(),
+        id: int().primaryKey().autoincrement(),
         pid: varchar({length: 255})
             .notNull()
             .unique()

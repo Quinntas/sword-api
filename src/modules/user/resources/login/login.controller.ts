@@ -17,15 +17,7 @@ export const loginController = controller(
         }
     },
     async (request, reply) => {
-        const user = request.requestContext.get('user')
-
-        if (!user)
-            throw new Error('User not found')
-
-        const res = await loginCommand.handle({
-            ...request.body,
-            user
-        })
+        const res = await loginCommand.handle(request.body)
 
         return reply.status(200).send(res)
     },
