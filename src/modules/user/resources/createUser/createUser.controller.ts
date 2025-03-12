@@ -20,5 +20,5 @@ export const createUserController = controller(
         return reply.status(201).send({
             message: "User Created",
         })
-    }
+    },
 )

@@ -7,6 +7,7 @@ import {FastifyTypedInstance} from "../core/types";
 import {routes} from "./routes";
 import {fastifyRequestContext} from "@fastify/request-context";
 import {fastifyWebsocket} from "@fastify/websocket";
+import {UserSelectModel} from "../modules/user/repo/user.schema";
 
 export const app: FastifyTypedInstance = fastify({
     logger: false,
@@ -18,6 +19,12 @@ app.setSerializerCompiler(serializerCompiler)
 app.register(fastifyCors, {
     origin: "*",
 })
+
+declare module '@fastify/request-context' {
+    interface RequestContextData {
+        user: UserSelectModel
+    }
+}
 
 app.register(fastifyRequestContext)
 
