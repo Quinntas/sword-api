@@ -20,6 +20,7 @@ app.register(fastifyCors, {
     origin: "*",
 })
 
+// TODO: move this
 declare module '@fastify/request-context' {
     interface RequestContextData {
         user: UserSelectModel

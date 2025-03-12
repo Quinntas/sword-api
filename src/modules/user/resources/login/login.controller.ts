@@ -1,6 +1,5 @@
-import {z} from "zod";
 import {controller} from "../../../../core/controller";
-import {loginBody} from "./login.dto";
+import {loginBody, loginResponse} from "./login.dto";
 import {loginCommand} from "./index";
 
 export const loginController = controller(
@@ -9,11 +8,7 @@ export const loginController = controller(
         tags: ["Users"],
         body: loginBody,
         response: {
-            200: z.object({
-                token: z.string(),
-                expiresIn: z.number(),
-                expiresAt: z.string(),
-            }),
+            200: loginResponse,
         }
     },
     async (request, reply) => {

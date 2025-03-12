@@ -14,6 +14,7 @@ export class CreateUserCommand implements Command<z.infer<typeof createUserBody>
     async handle(dto: z.infer<typeof createUserBody>) {
         const password = Crypto.encrypt(dto.password, process.env.PEPPER!)
 
+        // TODO: care for duplicate username
         await this.createUserRepository({
             username: dto.username,
             password,

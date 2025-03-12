@@ -1,17 +1,12 @@
 import {z} from "zod";
 import {Command} from "../../../../contracts/command";
-import {loginBody} from "./login.dto";
+import {loginBody, loginResponse} from "./login.dto";
 import {JWT} from "../../../../utils/jwt";
 import {UserRepository} from "../../repo/user.repository";
 import {Crypto} from "../../../../utils/crypto";
 
 type LoginCommandDTO = z.infer<typeof loginBody>
-
-interface LoginCommandResponseDTO {
-    token: string
-    expiresIn: number
-    expiresAt: string
-}
+type LoginCommandResponseDTO = z.infer<typeof loginResponse>
 
 export class LoginCommand implements Command<LoginCommandDTO, LoginCommandResponseDTO> {
     constructor(
