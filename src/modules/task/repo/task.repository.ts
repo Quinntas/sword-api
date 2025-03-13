@@ -14,4 +14,8 @@ export namespace TaskRepository {
     export function updateTask(pid: string, updateModel: Partial<TaskSelectModel>) {
         return db.update(taskSchema).set(updateModel).where(eq(taskSchema.pid, pid))
     }
+
+    export function deleteTask(pid: string) {
+        return db.delete(taskSchema).where(eq(taskSchema.pid, pid))
+    }
 }

@@ -10,7 +10,7 @@ export function ws(app: FastifyTypedInstance, path: string, controller: WSContro
 
 export function route(
     app: FastifyTypedInstance,
-    method: "get" | "post" | "put",
+    method: "get" | "post" | "put" | "delete",
     path: string,
     controller: Controller<any>,
 ) {
@@ -30,4 +30,8 @@ export function get(app: FastifyTypedInstance, path: string, controller: Control
 
 export function put(app: FastifyTypedInstance, path: string, controller: Controller<any>) {
     return route(app, "put", path, controller)
+}
+
+export function del(app: FastifyTypedInstance, path: string, controller: Controller<any>) {
+    return route(app, "delete", path, controller)
 }
