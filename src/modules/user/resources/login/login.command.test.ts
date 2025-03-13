@@ -5,7 +5,6 @@ import {beforeEach, describe, expect, it, vi} from 'vitest';
 import {JWT} from '../../../../utils/jwt';
 import {Crypto} from '../../../../utils/crypto';
 
-// Mock external dependencies
 vi.mock('../../../../utils/jwt', () => ({
     JWT: {
         sign: vi.fn().mockReturnValue('mock-jwt-token')
@@ -22,7 +21,6 @@ describe('LoginCommand', () => {
     let command: LoginCommand;
     const getUserRepository = vi.fn();
 
-    // Setup before each test
     beforeEach(() => {
         vi.clearAllMocks();
         command = new LoginCommand(getUserRepository);

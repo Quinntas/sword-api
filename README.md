@@ -39,7 +39,7 @@ The project uses a **repository pattern** to decouple business logic from persis
   CRUD operations.
 
 - **Command Pattern:**  
-  Business logic is encapsulated in command classes (e.g., `CreateUserCommand` and `LoginCommand`). These commands take
+  Business logic is encapsulated in command classes (e.g., `CreateTaskCommand` and `LoginCommand`). These commands take
   repository functions as dependencies, which simplifies unit testing because the repository can be easily mocked. This
   separation of concerns leads to more maintainable and testable code.
 
@@ -141,6 +141,6 @@ Unit tests are implemented using Vitest:
 pnpm run test
 ```
 
-Tests are located alongside command implementations (e.g., `createUser.command.test.ts`, `login.command.test.ts`),
+Tests are located alongside command implementations (e.g., `createTask.command.test.ts`, `login.command.test.ts`),
 ensuring that the business logic is properly verified.
 

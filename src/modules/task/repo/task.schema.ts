@@ -1,6 +1,6 @@
 import {baseColumns} from "../../shared/infra/baseColumns";
 import {userSchema} from "../../user/repo/user.schema";
-import {InferSelectModel} from "drizzle-orm";
+import {InferInsertModel, InferSelectModel} from "drizzle-orm";
 import {datetime, int, mysqlTable, varchar} from "drizzle-orm/mysql-core";
 
 export enum TaskStatus {
@@ -18,4 +18,4 @@ export const taskSchema = mysqlTable("tasks", {
 
 export type TaskSelectModel = InferSelectModel<typeof taskSchema>
 
-export type TaskInsertModel = InferSelectModel<typeof taskSchema>
+export type TaskInsertModel = InferInsertModel<typeof taskSchema>

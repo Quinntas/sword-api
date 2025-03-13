@@ -10,4 +10,8 @@ export namespace UserRepository {
     export function getUserWithUsername(username: string) {
         return db.select().from(userSchema).where(eq(userSchema.username, username))
     }
+
+    export function getUserWithPid(pid: string) {
+        return db.select().from(userSchema).where(eq(userSchema.pid, pid))
+    }
 }
