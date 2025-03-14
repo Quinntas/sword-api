@@ -94,6 +94,8 @@ The API includes automatic documentation support via Swagger:
 - **Notification Handling:**  
   Current notifications (printing to console) are non-blocking but are simplistic. For production scenarios, a robust
   message broker integration is advisable.
+- **Error Handling**
+  Currently this project does not handle errors properly, consider implementing your own handling.
 
 ---
 
@@ -115,6 +117,8 @@ The API includes automatic documentation support via Swagger:
    ```
    DATABASE_URL=your-mysql-connection-string
    REDIS_URL=your-redis-connection-string
+   RABBITMQ_URL=your-rmq-connection-string
+   PORT=your-port
    PEPPER=your-pepper
    JWT_SECRET=your-jwt-secret
    ```
