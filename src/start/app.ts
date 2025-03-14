@@ -8,6 +8,9 @@ import {routes} from "./routes";
 import {fastifyRequestContext} from "@fastify/request-context";
 import {fastifyWebsocket} from "@fastify/websocket";
 import {UserSelectModel} from "../modules/user/repo/user.schema";
+import {eventEmitter} from "./eventEmitter";
+import {eventRoutes} from "./event.routes";
+import {pingDatabase} from "./database";
 
 export const app: FastifyTypedInstance = fastify({
     logger: false,
@@ -50,11 +53,15 @@ app.register(fastifyWebsocket, {
 
 app.register(routes)
 
-app.listen({port: 3000}, (err, address) => {
+app.listen({port: 3000}, async (err, address) => {
     if (err) {
         console.error(err)
         process.exit(1)
     }
+
+    await pingDatabase()
+    await eventEmitter.connect()
+    await eventRoutes()
 
     console.log(`Server listening at ${address}`)
 })
