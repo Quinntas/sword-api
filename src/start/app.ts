@@ -32,8 +32,8 @@ app.register(fastifyRequestContext)
 app.register(fastifySwagger, {
     openapi: {
         info: {
-            title: "Luna",
-            description: "Luna API",
+            title: "Sword API",
+            description: "Sword API",
             version: "1.0.0",
         },
     },
