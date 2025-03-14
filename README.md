@@ -137,6 +137,16 @@ The API includes automatic documentation support via Swagger:
 
 ---
 
+## K8S
+
+```bash
+docker build -t sword-api:latest .
+
+minikube image load sword-api:latest
+
+kubectl apply -f k8s.yml
+```
+
 ## Testing
 
 Unit tests are implemented using Vitest:

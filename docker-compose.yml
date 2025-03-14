@@ -30,19 +30,6 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-  otel-lgtm:
-    image: grafana/otel-lgtm:latest
-    ports:
-      - "3000:3000"   # Grafana
-      - "3100:3100"   # Loki
-      - "4317:4317"   # OTLP gRPC
-      - "4318:4318"   # OTLP HTTP
-      - "9090:9090"   # Prometheus
-    environment:
-      - GRAFANA_ADMIN_PASSWORD=admin
-    volumes:
-      - otel_data:/var/lib/otel-lgtm
-
 volumes:
   redis_data:
   rabbitmq_data:
