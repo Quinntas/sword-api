@@ -13,7 +13,7 @@ import {eventRoutes} from "./event.routes";
 import {pingDatabase} from "./database";
 
 export const app: FastifyTypedInstance = fastify({
-    logger: false,
+    logger: true,
 }).withTypeProvider<ZodTypeProvider>()
 
 app.setValidatorCompiler(validatorCompiler)
